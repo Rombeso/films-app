@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppPropsType): JSX.Element {
   return (
     <>
       <Head>
-        <title>My films- app</title>
+        <title>My films - app</title>
         <link key={1} rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
