@@ -1,8 +1,12 @@
+import { Button, Htag } from '../components'
+
 
 export default function Home(): JSX.Element {
   return (
-    <div>
-      Hello, Привет.
-    </div>
+    <>
+      <Htag tag='h1'>Текст</Htag>
+      <Button appearence={'primary'}>Кнопка</Button>
+      <Button appearence={'ghost'}>Кнопка</Button>
+    </>
   )
 }
