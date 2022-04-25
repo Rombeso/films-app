@@ -21,3 +21,18 @@
 .textaria::placeholder {
     color: var(--gray);
 }
+
+.error {
+    border: 1px solid var(--red);
+}
+
+.wrapper {
+    position: relative;
+}
+
+.errorMassage {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    color: var(--red);
+}
