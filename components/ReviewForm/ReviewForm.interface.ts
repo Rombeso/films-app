@@ -2,5 +2,9 @@ export interface IReviewForm {
     name: string
     title: string
     description: string
-    reting: number
+    rating: number
+}
+
+export interface IReviewSentResponse {
+    message: string
 }

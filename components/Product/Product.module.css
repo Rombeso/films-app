@@ -166,6 +166,10 @@
     padding: 30px;
 }
 
+.rateTitle a {
+    color: var(--primary);
+}
+
 
 
 @media screen and (max-width: 1320px) {
@@ -251,6 +255,8 @@
         grid-area: actions;
     }
 }
+
+
 
 @media screen and (max-width: 640px) {
     .product {
