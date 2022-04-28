@@ -9,7 +9,8 @@ import { Rating } from '../Rating/Rating'
 export const Review = ({ review, className, ...props }: ReviewProps): JSX.Element => {
     const { name, title, description, createdAt, rating } = review
     return (
-        <div className={cn(styles.review, className)}
+        <div 
+        className={cn(styles.review, className)}
             {...props}
         >
             <UserIcon className={styles.user} />
