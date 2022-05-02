@@ -4,6 +4,7 @@ import UpIcon from './up.svg'
 import { useScrollY } from '../../hooks/useScrollY'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
+import { Buttonicon } from '../Buttonicon/Buttonicon'
 
 export const Up = (): JSX.Element => {
 const controls = useAnimation()
@@ -22,14 +23,13 @@ useEffect(() => {
    }
 
     return (
-        <motion.button 
+        <motion.div 
         className={styles.up} 
-        onClick={scrollTop}
         animate={controls}
         initial={{opacity: 0}}
 
         >
-<UpIcon />
-        </motion.button>
+<Buttonicon appearence='primary' icon='up' onClick={scrollTop}/>
+        </motion.div>
     )
 }
