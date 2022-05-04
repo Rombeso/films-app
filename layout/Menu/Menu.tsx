@@ -7,10 +7,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { firstLevelMenu } from '../../helpers/helpers'
 import { motion } from 'framer-motion'
+import { KeyboardEvent } from 'react'
 
 export const Menu = (): JSX.Element => {
     const { menu, setMenu, firstCategory } = useContext(AppContext)
     const router = useRouter()
+
+
 
     const variants = {
         visible: {
@@ -41,6 +44,13 @@ export const Menu = (): JSX.Element => {
             return m
         }))
     }
+
+    const openSecondLevelKey = (key: KeyboardEvent, secondCategory: string) => {
+if (key.code == 'Space' || key.code == 'Enter') {
+    key.preventDefault()
+    openSecondLevel(secondCategory)
+}
+}
 
     const buildFirstlevel = () => {
 
@@ -78,7 +88,13 @@ export const Menu = (): JSX.Element => {
                     }
                     return (
                         <div key={m._id.secondCategory} >
-                            <div className={styles.secondLevel} onClick={() => openSecondLevel(m._id.secondCategory)}>{m._id.secondCategory}</div>
+                            <div 
+                            tabIndex={0} 
+                            onKeyDown={(key: KeyboardEvent) => openSecondLevelKey(key, m._id.secondCategory) } 
+                            className={styles.secondLevel} 
+                            onClick={() => openSecondLevel(m._id.secondCategory)}
+                            >
+                                {m._id.secondCategory}</div>
                             <motion.div
                                 layout
                                 variants={variants}
@@ -88,7 +104,7 @@ export const Menu = (): JSX.Element => {
                                     [styles.secondLevelBlockOpened]: m.isOpened
                                 })}
                             >
-                                {buildThirdlevel(m.pages, menuItem.route)}
+                                {buildThirdlevel(m.pages, menuItem.route, m.isOpened ?? false)}
                             </motion.div>
                         </div>
                     )
@@ -97,7 +113,7 @@ export const Menu = (): JSX.Element => {
             </div >
         )
     }
-    const buildThirdlevel = (pages: PageItem[], route: string) => {
+    const buildThirdlevel = (pages: PageItem[], route: string, isOpened: boolean) => {
         return (
             pages.map(p => (
                 <motion.div key={p._id} variants={variantsChildren}>

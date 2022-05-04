@@ -8,7 +8,7 @@ import { Buttonicon } from '../Buttonicon/Buttonicon'
 
 export const Up = (): JSX.Element => {
 const controls = useAnimation()
-const y = useScrollY();
+const y = useScrollY()
 
 useEffect(() => {
     controls.start({opacity: y / document.body.scrollHeight * 2})
