@@ -118,7 +118,7 @@ if (key.code == 'Space' || key.code == 'Enter') {
             pages.map(p => (
                 <motion.div key={p._id} variants={variantsChildren}>
                     <Link href={`/${route}/${p.alias}`} >
-                        <a className={cn(styles.thirdLevel, {
+                        <a tabIndex={isOpened ? 0 : -1} className={cn(styles.thirdLevel, {
                             [styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath
                         })}>
                             {p.category}
